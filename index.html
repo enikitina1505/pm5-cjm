@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CJM — Пополнение счета (финтех-приложение)</title>
+<style>
+  :root{
+    --green:#21a038; --green-d:#18802c; --red:#d94141; --red-l:#fdecec;
+    --yel-l:#fff4d6; --gray:#5b6470; --line:#d9dee5;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#26303b;background:#f4f6f8}
+  .wrap{max-width:1500px;margin:0 auto;padding:20px 20px 60px}
+  h1{font-size:22px;margin:6px 0 2px}
+  .sub{color:var(--gray);font-size:13px;margin-bottom:16px}
+  table{border-collapse:collapse;width:100%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.08);font-size:12.5px;line-height:1.45}
+  th,td{border:1px solid var(--line);padding:8px 9px;vertical-align:top;text-align:left}
+  thead th{background:#eef3f7;font-size:12px}
+  thead th .n{color:var(--gray);font-weight:600;display:block;font-size:11px}
+  thead th .t{font-weight:700;font-size:12.5px}
+  th.layer{width:118px;min-width:118px;background:#f6f8fa;font-size:11px;text-align:center;font-weight:700}
+  th.layer.l2{min-width:270px}
+  .fru{background:var(--red-l)}
+  .fru .tag{color:var(--red);font-weight:700}
+  .badge{display:inline-block;background:var(--red);color:#fff;border-radius:10px;padding:1px 8px;font-size:10px;font-weight:700}
+  .em{font-size:15px}
+  tr.emotion th{background:#f6f8fa}
+  .curve{font-size:13px;word-spacing:2px}
+  .legend{margin:14px 0 6px;font-size:12.5px;color:#26303b}
+  .legend span{display:inline-block;margin-right:16px}
+  .sw{display:inline-block;width:12px;height:12px;border-radius:3px;border:1px solid var(--line);vertical-align:-1px;margin-right:5px}
+  .note{color:var(--gray);font-size:12px;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Customer Journey Map — «Пополнить счет с карты другого банка»</h1>
+  <div class="sub">Финтех-приложение с дейли-банкингом (B2C) · Джоб: внезапно не хватает денег на счете → нужно пополнить · Точка входа: «денег не хватает / пришла зарплата» → Точка выхода: «деньги зачислены, пользователь уверен, что всё прошло»</div>
+
+  <div class="legend">
+    <span><span class="sw" style="background:var(--red-l)"></span>точка фрустрации пользователя</span>
+    <span><span class="sw" style="background:var(--yel-l)"></span>зона сомнений / умеренного риска</span>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:118px">Слои CJM</th>
+        <th>Этап 1<br><span class="n">Осознание потребности</span></th>
+        <th>Этап 2<br><span class="n">Вход и поиск пополнения</span></th>
+        <th>Этап 3<br><span class="n">Выбор способа</span></th>
+        <th>Этап 4<br><span class="n">Ввод суммы и данных карты</span></th>
+        <th>Этап 5<br><span class="n">Подтверждение операции</span></th>
+        <th>Этап 6<br><span class="n">Ожидание зачисления</span></th>
+        <th>Этап 7<br><span class="n">Проверка результата</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th class="layer">Действия</th>
+        <td>Пытается оплатить / видит «недостаточно средств», или пришла зарплата — хочет завести деньги.</td>
+        <td>Открывает приложение, осматривает главный экран, ищет вход в пополнение, делает 2–3 тапа.</td>
+        <td>Открывает список способов, читает условия, ищет знакомый способ.</td>
+        <td>Вводит сумму; при выборе «С карты другого банка» вводит номер карты, срок, CVV.</td>
+        <td>Проверяет сумму и условия, подтверждает: биометрия / 3-D Secure.</td>
+        <td>Ждет зачисления, обновляет баланс, смотрит статусы; при задержке — в поддержку.</td>
+        <td>Видит обновленный баланс, оплачивает покупку / делает перевод.</td>
+      </tr>
+      <tr>
+        <th class="layer l2">Мысли и вопросы</th>
+        <td>«Денег не хватает», «Надо завести деньги», «Сколько на карте другого банка?»</td>
+        <td class="fru">«Где здесь пополнить?», «Пополнить — это перевод самому себе?»</td>
+        <td class="fru">«Какой способ быстрее?», «Где дешевле — есть ли комиссия?»</td>
+        <td class="fru">«Страшно вводить данные карты», «А данные не украдут?», «Какая минимальная сумма?»</td>
+        <td class="fru">«Комиссия уже включена в сумму?», «Вдруг спишется два раза?», «Куда именно лягут деньги?»</td>
+        <td class="fru">«Где деньги?», «Прошло или нет?», «Обещали мгновенно, а тут…»</td>
+        <td>«Супер, деньги на месте», «Можно оплачивать».</td>
+      </tr>
+      <tr>
+        <th class="layer">Эмоции</th>
+        <td>😐 нейтрально / лёгкое напряжение</td>
+        <td class="fru">😖 замешательство</td>
+        <td class="fru">😕 сомнение, недоверие</td>
+        <td class="fru">😰 страх, тревога</td>
+        <td class="fru">😟 настороженность</td>
+        <td class="fru">😳 беспокойство, раздражение</td>
+        <td>😊 удовлетворение</td>
+      </tr>
+      <tr>
+        <th class="layer">Точки контакта</th>
+        <td>Баланс в приложении, push/SMS об отказе, карта другого банка, уведомление о зарплате.</td>
+        <td>Главный экран, меню операций, виджет баланса.</td>
+        <td>Экран выбора способа, подсказки/FAQ, история пополнений.</td>
+        <td>Форма ввода, экран суммы, клавиатура, подсказки о защите.</td>
+        <td>Экран подтверждения, пуш/SMS, биометрия, 3-D Secure.</td>
+        <td>Экран статуса, push о зачислении, история операций, поддержка.</td>
+        <td>Баланс, экран операции, квитанция/чек, главный экран.</td>
+      </tr>
+      <tr>
+        <th class="layer">Метрики /<br>сигналы</th>
+        <td>% отклоненных оплат из-за нехватки средств; обращения «как пополнить».</td>
+        <td>Время до первого тапа; % нашедших кнопку за 5 сек; drop-off при входе.</td>
+        <td>% отказов на шаге; время выбора; переходы в FAQ про комиссии.</td>
+        <td>Ошибки ввода; отказы на шаге; обращения «небезопасно».</td>
+        <td>% брошенных флоу на подтверждении; ошибки 3-D Secure.</td>
+        <td>time-to-credit; обращения «деньги не пришли»; отказы от ожидания.</td>
+        <td>Повторные пополнения (retention), NPS.</td>
+      </tr>
+      <tr>
+        <th class="layer">Идеи</th>
+        <td>Подсказывать «Пополнить» внутри сценария отказа платежа.</td>
+        <td>Кнопка «Пополнить» рядом с балансом, без скролла.</td>
+        <td>Комиссия и срок под каждым способом; строка «данные защищены».</td>
+        <td>Разбить форму на шаги; замок + «данные не сохраняются»; СБП/Pay без ввода карты.</td>
+        <td>Сводка «Спишется → Комиссия → Поступит»; 1 заметная кнопка.</td>
+        <td>Статусы «В пути → Зачислено», прогноз времени, push о зачислении.</td>
+        <td>Экран успеха с живым балансом и возвратом к цели (оплата).</td>
+      </tr>
+      <tr class="emotion">
+        <th class="layer">Кривая эмоций</th>
+        <td colspan="7" class="curve">😐 &nbsp;→&nbsp; <span style="color:var(--red);font-weight:700">😖</span> &nbsp;→&nbsp; <span style="color:var(--red);font-weight:700">😕</span> &nbsp;→&nbsp; <span style="color:var(--red);font-weight:700">😰</span> &nbsp;→&nbsp; <span style="color:var(--red);font-weight:700">😟</span> &nbsp;→&nbsp; <span style="color:var(--red);font-weight:700">😳</span> &nbsp;→&nbsp; 😊</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="legend" style="margin-top:18px"><b>Точки фрустрации:</b></div>
+  <table style="width:100%">
+    <tbody>
+      <tr><td style="width:260px"><span class="badge">Ф1</span> Этап 2 — поиск пополнения</td><td>Кнопка спрятана в меню, путь начинается с замешательства.</td></tr>
+      <tr><td><span class="badge">Ф2</span> Этап 3 — выбор способа</td><td>Комиссии и сроки не видны до выбора — страх скрытых платежей.</td></tr>
+      <tr><td><span class="badge">Ф3</span> Этап 4 — ввод данных карты</td><td>Форма выглядит небезопасной, нет контекста защиты.</td></tr>
+      <tr><td><span class="badge">Ф4</span> Этап 5 — подтверждение</td><td>Непонятна итоговая сумма, страх двойного списания.</td></tr>
+      <tr><td><span class="badge">Ф5</span> Этап 6 — ожидание</td><td>Нет статусов и времени зачисления → обращения в поддержку.</td></tr>
+    </tbody>
+  </table>
+
+  <p class="note">Артефакт к Заданию 2 (аналог доски в Miro/Holst). Открыть в браузере, можно сделать скриншот и вставить в итоговый документ.</p>
+</div>
+</body>
+</html>
